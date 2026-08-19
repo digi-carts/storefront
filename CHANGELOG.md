@@ -4,6 +4,8 @@
 
 - REST/client notes at `doc/api.md`
 - Service overview restored at `doc/README.md`
+- Regenerate `package-lock.json` so `npm ci` includes Cucumber/ts-node
+- Load Cucumber steps as CommonJS via ts-node for Node 20/24 compatibility
 
 ## [0.1.36] - 2026-08-19
 
