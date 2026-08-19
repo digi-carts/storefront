@@ -4,7 +4,7 @@ on:
     branches: [main]
 env:
   REGION: us-east1
-  IMAGE: us-east1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/digi-cart/digi-cart-storefront
+  IMAGE: us-east1-docker.pkg.dev/digi-carts/digi-cart/digi-cart-storefront
   SERVICE: digi-cart-storefront
 jobs:
   release:

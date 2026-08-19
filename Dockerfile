@@ -1,7 +1,7 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 COPY . .
 ARG NEXT_PUBLIC_API_URL=http://localhost:4000/api
 ARG NEXT_PUBLIC_GOOGLE_CLIENT_ID=
@@ -14,8 +14,9 @@ RUN NODE_OPTIONS="--max-old-space-size=1536" npm run build
 FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --omit=dev
+RUN npm ci --omit=dev
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-EXPOSE 3000
-CMD ["npx", "next", "start"]
+EXPOSE 8080
+ENV PORT=8080
+CMD ["npx", "next", "start", "-p", "8080"]
