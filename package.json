@@ -1,6 +1,6 @@
 {
   "name": "digi-carts-storefront",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "description": "digi-carts storefront — multi-tenant e-commerce frontend",
   "private": true,
   "scripts": {
