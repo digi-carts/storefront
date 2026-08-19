@@ -17,6 +17,6 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-EXPOSE 8080
-ENV PORT=8080
-CMD ["npx", "next", "start", "-p", "8080"]
+EXPOSE 3000
+ENV PORT=3000
+CMD ["sh", "-c", "npx next start -p ${PORT:-3000}"]
