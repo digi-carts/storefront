@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "test:e2e": "playwright test",
-    "test:e2e:report": "playwright show-report e2e-report"
+    "test:e2e:report": "playwright show-report e2e-report",
+    "test:component": "cucumber-js"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -31,7 +32,9 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^10.9.0",
     "@playwright/test": "^1.62.1",
+    "ts-node": "^10.9.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
