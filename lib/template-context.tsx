@@ -16,7 +16,7 @@ const CURRENCY_SYMBOLS: Record<string, string> = {
   CAD: 'C$', SGD: 'S$', AED: 'د.إ', JPY: '¥', MYR: 'RM',
 };
 
-const GCS_BUCKET = process.env.NEXT_PUBLIC_GCS_BUCKET || 'digi-cart-uploads-'''' ''${'' ''secrets.GCP_PROJECT_ID'' ''}';
+const GCS_BUCKET = process.env.NEXT_PUBLIC_GCS_BUCKET || 'digi-cart-uploads';
 
 const defaultCtx: StoreContext = { template: 'default', currency: 'INR', currencySymbol: '₹' };
 const TemplateContext = createContext<StoreContext>(defaultCtx);
