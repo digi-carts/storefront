@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.1.37] - 2026-08-19
+
+- REST/client notes at `doc/api.md`
+- Service overview restored at `doc/README.md`
+
 ## [0.1.36] - 2026-08-19
 
 - Cucumber JS component tests (`npm run test:component`)
