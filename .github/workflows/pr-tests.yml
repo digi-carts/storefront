@@ -1,0 +1,22 @@
+name: PR tests
+
+on:
+  pull_request:
+    branches: [stage, main]
+
+concurrency:
+  group: pr-tests-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - name: Run component tests
+        run: npm run test:component
