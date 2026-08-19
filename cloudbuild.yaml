@@ -1,0 +1,29 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--no-cache'
+      - '-t'
+      - 'us-east1-docker.pkg.dev/$PROJECT_ID/digi-cart/digi-cart-storefront:latest'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_API_URL=https://digi-cart-api-gateway-496160804659.us-east1.run.app/api'
+      - '--build-arg'
+      - 'CATALOG_SERVICE_URL=https://digi-cart-catalog-service-496160804659.us-east1.run.app'
+      - '.'
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-east1-docker.pkg.dev/$PROJECT_ID/digi-cart/digi-cart-storefront:latest']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'services'
+      - 'update'
+      - 'digi-cart-storefront'
+      - '--image'
+      - 'us-east1-docker.pkg.dev/$PROJECT_ID/digi-cart/digi-cart-storefront:latest'
+      - '--region'
+      - 'us-east1'
+      - '--set-env-vars'
+      - 'PLATFORM_DOMAIN=digi-carts.com'
+images:
+  - 'us-east1-docker.pkg.dev/$PROJECT_ID/digi-cart/digi-cart-storefront:latest'

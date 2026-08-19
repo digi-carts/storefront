@@ -1,0 +1,10 @@
+---
+description: File map and knowledge graph for storefront — load so the agent can jump to the right files
+alwaysApply: true
+---
+
+# storefront — AI file map
+
+Start with `AGENTS.md`, then `docs/ai/KNOWLEDGE_GRAPH.md`. Do not scan the whole repo when a task is listed there.
+
+Tenant routing is `middleware.ts` + `app/s/[store]`. Shared data in `lib/`. Keep `(shop)` and `s/[store]` in sync.
