@@ -7,7 +7,20 @@ env:
   IMAGE: us-east1-docker.pkg.dev/digi-carts-dev/digi-cart/digi-cart-storefront
   SERVICE: digi-cart-storefront-dev
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - name: Run component tests
+        run: npm run test:component
   build-deploy:
+    needs: test
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

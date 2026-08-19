@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.37] - 2026-08-19
+
+- REST/client notes at `doc/api.md`
+- Service overview restored at `doc/README.md`
+- Regenerate `package-lock.json` so `npm ci` includes Cucumber/ts-node
+- Load Cucumber steps as CommonJS via ts-node for Node 20/24 compatibility
+
+## [0.1.36] - 2026-08-19
+
+- Cucumber JS component tests (`npm run test:component`)
+- GitHub Actions `pr-tests.yml`: pull requests to `stage`/`main` run component tests and fail the check on failure
+- Dev deploy (`deploy-dev.yml`) runs component tests before Cloud Run update
+
 ## [0.1.35] - 2026-08-18
 
 - fix: narrow cached store before applying template context (#23)
