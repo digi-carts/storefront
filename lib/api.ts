@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { sfKey } from './storefront-store';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+const API_BASE = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api') + '/v1';
 
 export const api = axios.create({ baseURL: API_BASE });
 
